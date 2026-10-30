@@ -53,7 +53,7 @@
       { "from": "../mars-engine/build/classes", "to": "engine" },
       { "from": ".build/runtime", "to": "runtime" }
     ],
-    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }] },
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }], "icon": "public/icon.png" },
     "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true }
   }
 }

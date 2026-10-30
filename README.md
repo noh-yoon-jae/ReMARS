@@ -1,5 +1,7 @@
 # reMARS
 
+[English](README.md) | [한국어](README.ko.md)
+
 Project folders are separated by responsibility:
 
 - `web/` contains the Next.js interface and build scripts.
