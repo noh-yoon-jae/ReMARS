@@ -1,0 +1,8 @@
+web/.next/
+web/out/
+web/.build/
+web/node_modules/
+web/dist/
+mars-engine/build/
+desktop/build/
+web/.DS_Store

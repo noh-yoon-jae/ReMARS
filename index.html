@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101311" />
+  <title>reMARS — MIPS Studio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    :root{color-scheme:dark;--bg:#101311;--panel:#171b18;--panel2:#1b201d;--line:#2a312c;--muted:#859087;--text:#e8eee9;--green:#c4f36a;--green2:#91c93e;--red:#ff7e6b;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--display:'Space Grotesk',sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;height:100vh;overflow:hidden}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}button:focus-visible{outline:2px solid var(--green);outline-offset:2px}.app{height:100vh;display:flex;flex-direction:column;min-width:850px}.topbar{height:58px;display:flex;align-items:center;border-bottom:1px solid var(--line);padding:0 22px;gap:30px;background:#141815}.brand{font:700 18px var(--display);letter-spacing:-.8px;display:flex;align-items:center;gap:9px}.brand-mark{width:25px;height:25px;border-radius:8px;background:var(--green);display:grid;place-items:center;color:#111;font:700 13px var(--display);transform:rotate(-8deg)}.brand span{color:var(--green)}.project{display:flex;align-items:center;gap:9px;color:#aab3ac}.project strong{color:#e7ece8;font-weight:500}.crumb{color:#5f6b62}.top-right{margin-left:auto;display:flex;align-items:center;gap:18px}.engine{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#191e1a;padding:7px 10px;border-radius:7px;color:#a9b2ab;font-size:11px}.dot{height:7px;width:7px;border-radius:50%;background:#e6b65c;box-shadow:0 0 10px #e6b65c55}.avatar{height:28px;width:28px;border-radius:50%;background:#354232;color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:700}.toolbar{height:54px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 20px;gap:8px;background:#141815}.toolbtn{height:32px;padding:0 11px;border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;gap:7px;color:#c2cbc4;font-size:12px}.toolbtn:hover{background:#222a24}.toolbtn.primary{background:var(--green);border-color:var(--green);color:#17200f;font-weight:700}.toolbtn.primary:hover{background:#d2fa88}.toolbtn.run{color:var(--green);border-color:#48533f}.toolbtn .ico{font-size:14px;line-height:1}.divider{height:22px;width:1px;background:var(--line);margin:0 4px}.tool-spacer{flex:1}.select{border:0;background:transparent;color:#aeb8b0;font-size:11px;padding:7px 3px}.shortcut{font:10px var(--mono);color:#7b867e;border:1px solid #343c36;border-radius:4px;padding:2px 4px;margin-left:5px}.main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(400px,1fr) 390px;gap:1px;background:var(--line)}.left,.right{min-height:0;background:var(--bg);display:flex;flex-direction:column}.filebar{height:42px;display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:#141815}.filetab{padding:0 16px;display:flex;align-items:center;gap:8px;color:#8f9a91;border-right:1px solid var(--line);font-size:12px;position:relative}.filetab.active{color:#e2e9e2;background:var(--panel)}.filetab.active:after{content:'';height:2px;position:absolute;bottom:-1px;left:12px;right:12px;background:var(--green)}.file-icon{color:var(--green);font:11px var(--mono)}.unsaved{height:6px;width:6px;background:#e5b95e;border-radius:50%}.addtab{padding:0 12px;color:#7e8980;font-size:18px}.editor-head{height:38px;border-bottom:1px solid #222824;display:flex;align-items:center;padding:0 17px;color:#69746c;font-size:10px;letter-spacing:.1em;text-transform:uppercase}.editor-head .path{margin-left:auto;color:#778179;font:10px var(--mono);letter-spacing:0;text-transform:none}.editor{display:flex;flex:1;min-height:0;overflow:auto;background:#171b18;padding:12px 0 25px;font:12px/1.9 var(--mono);tab-size:4}.gutter{width:53px;flex:none;text-align:right;padding-right:15px;color:#59645c;user-select:none;white-space:pre}.gutter .current{color:var(--green)}.code{white-space:pre;min-width:max-content;padding-right:35px;outline:none;caret-color:var(--green)}.code-line{height:22.8px}.comment{color:#728070}.directive{color:#d3a6ff}.label{color:#f0d776}.op{color:#90c8ff}.reg{color:#d9e49f}.num{color:#e8aa8c}.console{height:166px;border-top:1px solid var(--line);background:#121613;display:flex;flex-direction:column}.panel-head{height:38px;display:flex;align-items:center;padding:0 15px;border-bottom:1px solid #252c27;gap:16px;flex:none}.panel-tab{height:100%;display:flex;align-items:center;color:#7f8a82;font-size:11px;position:relative}.panel-tab.active{color:#e1e8e1}.panel-tab.active:after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--green)}.console-body{padding:12px 16px;font:11px/1.9 var(--mono);color:#9ca79e;overflow:auto}.prompt{color:var(--green)}.console-time{color:#657167}.right{background:#131714}.right .panel-head{padding:0 17px}.right .panel-tab{font-size:12px}.right-title{margin-left:auto;color:#717d73;font-size:10px}.section{border-bottom:1px solid var(--line)}.section-title{height:39px;display:flex;align-items:center;padding:0 17px;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#8e9a90}.section-title .chevron{color:#667168;margin-right:8px;font-size:12px}.section-title .count{margin-left:auto;background:#242b25;color:#98a49a;border-radius:4px;padding:3px 6px;letter-spacing:0}.reg-table{padding:0 12px 10px}.reg-row{display:grid;grid-template-columns:1fr 112px 76px;align-items:center;height:25px;padding:0 5px;border-radius:4px;font:10px var(--mono);color:#98a39a}.reg-row.head{height:23px;color:#5f6b62;text-transform:uppercase;font:9px var(--sans);letter-spacing:.08em}.reg-row:not(.head):hover{background:#1c221e}.reg-row.changed{background:#242b20}.reg-name{color:#bbc5bd}.reg-val{text-align:right;color:#dce7dc}.reg-dec{text-align:right;color:#748076}.changed .reg-val{color:var(--green)}.memory{padding:0 16px 12px;font:10px/1.9 var(--mono)}.mem-row{display:grid;grid-template-columns:92px repeat(4,1fr);gap:7px;color:#99a49b}.mem-row.head{color:#626e64;font:9px var(--sans);letter-spacing:.06em;padding-bottom:2px}.mem-row .addr{color:#8dba56}.mem-row .word{text-align:right}.memory-note{color:#566158;font:10px var(--sans);padding:4px 0 0 92px}.output{padding:0 17px 14px;font:10px/1.8 var(--mono);color:#a4afa5}.output .ok{color:var(--green)}.statusbar{height:27px;background:#171c18;border-top:1px solid var(--line);display:flex;align-items:center;padding:0 13px;gap:17px;font:10px var(--mono);color:#748076}.status-left{display:flex;align-items:center;gap:7px}.statusbar .right-status{margin-left:auto;display:flex;gap:15px}.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}.toast{position:fixed;bottom:42px;left:50%;transform:translate(-50%,12px);opacity:0;background:#263022;border:1px solid #4a5c38;border-radius:8px;padding:10px 15px;color:#ddf4bf;box-shadow:0 12px 35px #0008;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:1050px){.main{grid-template-columns:minmax(360px,1fr) 330px}.reg-row{grid-template-columns:1fr 100px 60px}.topbar{padding:0 14px;gap:18px}.toolbar{padding:0 12px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">M</div>re<span>MARS</span></div>
+      <div class="project"><strong>Computer Architecture</strong><span class="crumb">/</span> Lab 04: Loops</div>
+      <div class="top-right"><div class="engine"><i class="dot"></i> UI preview <span style="color:#606c62">·</span> MARS engine not connected</div><button class="avatar" title="Profile">ED</button></div>
+    </header>
+    <nav class="toolbar" aria-label="Simulation controls">
+      <button class="toolbtn primary" id="assemble"><span class="ico">⌘</span> Assemble <span class="shortcut">F3</span></button>
+      <span class="divider"></span>
+      <button class="toolbtn" id="step"><span class="ico">◧</span> Step <span class="shortcut">F7</span></button>
+      <button class="toolbtn run" id="run"><span class="ico">▶</span> Run <span class="shortcut">F5</span></button>
+      <button class="toolbtn" id="reset"><span class="ico">↺</span> Reset</button>
+      <span class="divider"></span>
+      <button class="toolbtn" id="breakpoint"><span style="color:#e88978">●</span> Breakpoint</button>
+      <span class="tool-spacer"></span>
+      <span class="select">MIPS32 <span style="color:#667168">⌄</span></span>
+      <span class="divider"></span>
+      <span class="select">Hexadecimal <span style="color:#667168">⌄</span></span>
+      <button class="toolbtn" id="share" title="Share project">↗</button>
+    </nav>
+    <main class="main">
+      <section class="left">
+        <div class="filebar"><button class="filetab active"><span class="file-icon">◈</span> sum_loop.asm <i class="unsaved"></i></button><button class="addtab" title="New file">+</button></div>
+        <div class="editor-head"><span>Source editor</span><span class="path">~/lab04/sum_loop.asm</span></div>
+        <div class="editor" id="editor"><div class="gutter" id="gutter"></div><div class="code" id="code" contenteditable="true" spellcheck="false" aria-label="MIPS assembly editor"></div></div>
+        <section class="console">
+          <div class="panel-head"><button class="panel-tab active">Messages</button><button class="panel-tab">Console</button><button class="panel-tab">Find</button><span class="right-title">CLEAR</span></div>
+          <div class="console-body" id="messages"><div><span class="console-time">09:41:02</span> &nbsp;Welcome to reMARS preview.</div><div><span class="prompt">●</span> &nbsp;Editor and layout preview. MIPS assembly and simulation are not connected yet.</div><div><span class="console-time">09:41:02</span> &nbsp;Source: <span style="color:#c8d5c9">sum_loop.asm</span> &nbsp;·&nbsp; 16 lines</div></div>
+        </section>
+      </section>
+      <aside class="right">
+        <div class="panel-head"><button class="panel-tab active">Registers</button><button class="panel-tab">Coprocessor 1</button><span class="right-title">32 REGISTERS</span></div>
+        <div class="section">
+          <div class="section-title"><span class="chevron">⌄</span> General purpose <span class="count">32</span></div>
+          <div class="reg-table" id="registers"></div>
+        </div>
+        <div class="section">
+          <div class="section-title"><span class="chevron">⌄</span> Memory <span class="right-title" style="margin-left:auto;margin-right:8px">DATA SEGMENT</span><span class="count">0x10010000</span></div>
+          <div class="memory"><div class="mem-row head"><span>ADDRESS</span><span class="word">+0</span><span class="word">+4</span><span class="word">+8</span><span class="word">+C</span></div><div class="mem-row"><span class="addr">0x10010000</span><span class="word">00000000</span><span class="word">00000000</span><span class="word">00000000</span><span class="word">00000000</span></div><div class="mem-row"><span class="addr">0x10010010</span><span class="word">00000000</span><span class="word">00000000</span><span class="word">00000000</span><span class="word">00000000</span></div><div class="memory-note">Memory view updates during simulation</div></div>
+        </div>
+        <div class="section">
+          <div class="section-title"><span class="chevron">⌄</span> Program output <span class="right-title">STDOUT</span></div>
+          <div class="output" id="output"><div style="color:#68746b">Program output will appear here</div></div>
+        </div>
+      </aside>
+    </main>
+    <footer class="statusbar"><div class="status-left"><i class="status-dot"></i> Ready</div><span>Line 16, Col 1</span><span>Spaces: 4</span><span>UTF-8</span><div class="right-status"><span>PC&nbsp; 0x00400000</span><span>MIPS32</span><span>reMARS preview</span></div></footer>
+  </div>
+  <div class="toast" id="toast">This control is part of the UI preview.</div>
+  <script>
+    const source = `# Sum integers 1 through 5\n.data\nresult: .word 0\n\n.text\n.globl main\nmain:\n    li   $t0, 1          # counter\n    li   $t1, 5          # limit\n    li   $t2, 0          # sum\n\nloop:\n    add  $t2, $t2, $t0\n    addi $t0, $t0, 1\n    ble  $t0, $t1, loop\n\n    sw   $t2, result\n    li   $v0, 10\n    syscall`;
+    const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    function highlight(line){let out=esc(line);if(/^\s*#/.test(line))return `<span class="comment">${out}</span>`;out=out.replace(/(\.\w+)/g,'<span class="directive">$1</span>').replace(/(\$[\w]+)/g,'<span class="reg">$1</span>').replace(/\b(li|add|addi|ble|sw|syscall)\b/g,'<span class="op">$1</span>').replace(/\b(main|loop|result)(?=:)/g,'<span class="label">$1</span>').replace(/(#[^\n]*)/g,'<span class="comment">$1</span>');return out||'&nbsp;'}
+    const code=document.getElementById('code'), gutter=document.getElementById('gutter');
+    function render(src){const lines=src.split('\n');code.innerHTML=lines.map(highlight).join('<br>');gutter.innerHTML=lines.map((_,i)=>`<div class="${i===0?'current':''}">${String(i+1).padStart(2,'0')}</div>`).join('')}
+    render(source);
+    let toastTimer;function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2400)}
+    const names=['$zero','$at','$v0','$v1','$a0','$a1','$a2','$a3','$t0','$t1','$t2','$t3','$t4','$t5','$t6','$t7','$s0','$s1','$s2','$s3','$s4','$s5','$s6','$s7','$t8','$t9','$k0','$k1','$gp','$sp','$fp','$ra'];
+    function paintRegs(step=0){let html='<div class="reg-row head"><span>REGISTER</span><span style="text-align:right">HEX VALUE</span><span style="text-align:right">DECIMAL</span></div>';names.forEach((n,i)=>{let val='00000000',dec='0';if(i===8&&step>0){val=(step+1).toString(16).padStart(8,'0').toUpperCase();dec=String(step+1)}if(i===9)val='00000005';if(i===10&&step>0){let s=step*(step+1)/2;val=s.toString(16).padStart(8,'0').toUpperCase();dec=String(s)}html+=`<div class="reg-row ${step>0&&(i===8||i===10)?'changed':''}"><span class="reg-name">${n}</span><span class="reg-val">0x${val}</span><span class="reg-dec">${dec}</span></div>`});document.getElementById('registers').innerHTML=html}
+    paintRegs();let ticks=0;
+    document.getElementById('assemble').onclick=()=>{document.getElementById('messages').innerHTML='<div><span class="console-time">09:41:02</span> &nbsp;UI preview only. Connect the MARS engine to assemble programs.</div><div><span class="prompt">●</span> &nbsp;Assembly has not been run.</div>';toast('Assembly needs the MARS engine connection.');};
+    document.getElementById('step').onclick=()=>{ticks=(ticks+1)%9;paintRegs(ticks);toast('Simulation preview only — no MIPS instruction executed.');};
+    document.getElementById('run').onclick=()=>toast('Run will be available when the MARS engine is connected.');
+    document.getElementById('reset').onclick=()=>{ticks=0;paintRegs();toast('Preview state reset.');};
+    document.getElementById('breakpoint').onclick=()=>toast('Click a line number to set a breakpoint.');
+    document.getElementById('share').onclick=()=>toast('Project sharing will be available in a later build.');
+    document.querySelectorAll('.panel-tab').forEach(b=>b.onclick=()=>{let group=b.parentElement;group.querySelectorAll('.panel-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(['Console','Find','Coprocessor 1'].includes(b.textContent.trim()))toast(`${b.textContent.trim()} panel preview`)});
+    code.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();document.execCommand('insertText',false,'    ')}});
+  </script>
+</body>
+</html>
